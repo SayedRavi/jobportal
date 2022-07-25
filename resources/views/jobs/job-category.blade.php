@@ -25,7 +25,13 @@
                     @foreach($jobs as $job)
                         <tr>
                             <td>{{$i++}}</td>
-                            <td><img src="{{asset("avatar/apple.jpg")}}" alt="apple logo" width="100"></td>
+                            <td>
+                                @if(empty(auth()->user()->company->logo))
+                                    <img  src="{{asset('avatar/th.jpg')}}" alt="" style="width: 100px; height: 100px;" class="center">
+                                @else
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('uploads/logo')}}/{{auth()->user()->company->logo}}" alt="" style="width: 80px; height: 80px;">
+
+                            @endif
                             <td>
                                 <b>Position: </b> {{$job->position}}
                                 <br>
