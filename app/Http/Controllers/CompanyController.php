@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['employer','verified']);
+    }
     public function index($id, Company $company)
     {
         $active = 'company';

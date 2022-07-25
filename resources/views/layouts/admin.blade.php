@@ -76,14 +76,20 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{$active == 'jobs' ? 'active' : ''}}" aria-current="page" href="{{route('admin.jobs')}}">
-                                            <i class="fa fa-layer-group"></i>
+                                            <i class="fa fa-table-columns"></i>
                                             <span class="ml-2">Jobs</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{$active == 'cat' ? 'active' : ''}}" aria-current="page" href="{{route('category')}}">
-                                            <i class="fa fa-layer-group"></i>
+                                            <i class="fa fa-table-cells"></i>
                                             <span class="ml-2">Categories</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link {{$active == 'pass' ? 'active' : ''}}" aria-current="page" href="{{route('password')}}">
+                                            <i class="fa fa-key"></i>
+                                            <span class="ml-2">Change Password</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">

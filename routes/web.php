@@ -35,11 +35,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function () {
     Route::get('/dashboard/category/edit/{id}',[\App\Http\Controllers\adminController::class, 'edit_category'])->name('category.edit');
     Route::post('/dashboard/category/update/{id}',[\App\Http\Controllers\adminController::class, 'update_category'])->name('category.update');
     Route::delete('/dashboard/category/delete/{id}',[\App\Http\Controllers\adminController::class, 'delete_category'])->name('category.delete');
+    Route::get('/dashboard/password',[\App\Http\Controllers\adminController::class, 'password'])->name('password');
+    Route::post('/dashboard/password/change',[\App\Http\Controllers\adminController::class, 'change_password'])->name('password_change');
 });
-//Route::prefix('admin')->middleware(['auth','admin'])->group(function (){
-//    Route::get('/dashboard', [\App\Http\Controllers\adminController::class, 'index']);
-//
-//});
 
 //JObs Profile
 Route::get('/jobs/{id}/{job}',[\App\Http\Controllers\JobController::class,'show'])->name('jobs.show');
