@@ -84,6 +84,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{$active == 'c_pass' ? 'active' : ''}}" aria-current="page" href="{{route('c_password')}}">
+                                <i class="fa fa-key"></i>
+                                <span class="ml-2">Change Password</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

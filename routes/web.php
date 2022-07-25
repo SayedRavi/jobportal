@@ -63,6 +63,8 @@ Route::get('/company/create',[\App\Http\Controllers\CompanyController::class,'cr
 Route::post('/company/store',[\App\Http\Controllers\CompanyController::class,'store'])->name('company.store');
 Route::post('/company/coverphoto',[\App\Http\Controllers\CompanyController::class,'coverphoto'])->name('company.coverphoto');
 Route::post('/company/logo',[\App\Http\Controllers\CompanyController::class,'logo'])->name('company.logo');
+Route::get('/company/password',[\App\Http\Controllers\CompanyController::class, 'password'])->name('c_password');
+Route::post('/company/password/change',[\App\Http\Controllers\CompanyController::class, 'change_password'])->name('c_password_change');
 
 //User Profile
 Route::get('user/profile',[\App\Http\Controllers\userProfileController::class,'index'])->name('user.profile');
@@ -70,10 +72,15 @@ Route::post('profile/store',[\App\Http\Controllers\userProfileController::class,
 Route::post('profile/coverletter',[\App\Http\Controllers\userProfileController::class,'coverletter'])->name('profile.coverletter');
 Route::post('profile/resume',[\App\Http\Controllers\userProfileController::class,'resume'])->name('profile.resume');
 Route::post('profile/avatar',[\App\Http\Controllers\userProfileController::class,'avatar'])->name('profile.avatar');
+Route::get('/user/password',[\App\Http\Controllers\userProfileController::class, 'password'])->name('u_password');
+Route::post('/user/password/change',[\App\Http\Controllers\userProfileController::class, 'change_password'])->name('u_password_change');
+
 
 //Employer Profile
 Route::view('employer/profile','auth.emp-register')->name('employer.registration');
 Route::post('employer/profile/store', [\App\Http\Controllers\EmployerProfileController::class ,'store'])->name('employer.store');
+Route::get('/employer/password',[\App\Http\Controllers\CompanyController::class, 'password'])->name('e_password');
+Route::post('/employer/password/change',[\App\Http\Controllers\CompanyController::class, 'change_password'])->name('e_password_change');
 
 //Category Option
 Route::get('category/{id}',[\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');

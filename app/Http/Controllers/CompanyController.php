@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CompanyController extends Controller
 {
@@ -98,5 +101,22 @@ class CompanyController extends Controller
         }
     }
 
+    public function password()
+    {
+        $active = 'c_pass';
+        return view('company.password',compact('active'));
+    }
+    public function change_password(Request $request, User $user)
+    {
+        $id = Auth::user()->id;
+        $request->validate([
+            'password' => 'required | min:8',
+            'c_password' => 'required | same:password'
+        ]);
+        $user->where('id',$id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+        return back()->withSuccess('Password Changed Successfully');
+    }
 
 }

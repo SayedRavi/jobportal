@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class userProfileController extends Controller
 {
@@ -95,5 +98,23 @@ class userProfileController extends Controller
             ]);
             return redirect()->back()->withSuccess('Avatar Updated Successfully');
         }
+    }
+    public function password()
+    {
+        $active = 'u_pass';
+        return view('profile.password',compact('active'));
+    }
+
+    public function change_password(Request $request, User $user)
+    {
+        $id = Auth::user()->id;
+        $request->validate([
+            'password' => 'required | min:8',
+            'c_password' => 'required | same:password'
+        ]);
+        $user->where('id',$id)->update([
+            'password' => Hash::make($request->password)
+        ]);
+        return back()->withSuccess('Password Changed Successfully');
     }
 }

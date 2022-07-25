@@ -76,6 +76,12 @@
                                 <span class="ml-2">Jobs</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{$active == 'u_pass' ? 'active' : ''}}" aria-current="page" href="{{route('u_password')}}">
+                                <i class="fa fa-key"></i>
+                                <span class="ml-2">Change Password</span>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}"
