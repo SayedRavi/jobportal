@@ -65,7 +65,7 @@
                             <br>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input value="{{\Illuminate\Support\Facades\Auth::user()->company->phone}} ? old{{'slogan'}}" type="text" name="phone" required class="form-control @error('phone') valid @enderror" >
+                                <input value="{{old('phone') ? '' : \Illuminate\Support\Facades\Auth::user()->company->phone}}" type="text" name="phone" required class="form-control @error('phone') valid @enderror" >
                                 @error('phone')
                                 <blockquote class="text-danger">{{$message}}</blockquote>
                                 @enderror
@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label for="website">Website</label>
                                 <input type="text" name="website" class="form-control @error('website') valid @enderror"
-                                value="{{\Illuminate\Support\Facades\Auth::user()->company->website}} : old{{'slogan'}}" required>
+                                value="{{ old('website') ? '' : \Illuminate\Support\Facades\Auth::user()->company->website}}" required>
                                 @error('website')
                                 <blockquote class="text-danger">{{$message}}</blockquote>
                                 @enderror
@@ -83,7 +83,7 @@
                             <div class="form-group">
                                 <label for="slogan">Slogan</label>
                                 <input type="text" name="slogan" class="form-control @error('slogan') valid @enderror"
-                                value="{{\Illuminate\Support\Facades\Auth::user()->company->slogan}} : old{{'slogan'}}" required>
+                                value="{{old('slogan') ? '' : \Illuminate\Support\Facades\Auth::user()->company->slogan}}" required>
                                 @error('slogan')
                                 <blockquote class="text-danger">{{$message}}</blockquote>
                                 @enderror

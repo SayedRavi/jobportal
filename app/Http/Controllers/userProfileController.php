@@ -70,7 +70,7 @@ class userProfileController extends Controller
 
         $user_id = auth()->user()->id;
         $this->validate($request,[
-            'resume' => 'required | mimes:pdf,doc,docx | max: 2000'
+            'resume' => 'required | max:3000 | mimes:pdf,doc,docx'
         ]);
         if ($request->file('resume') == null) {
             return back()->withWarning('Please Choose Resume');

@@ -18,12 +18,14 @@ class EmployerProfileController extends Controller
             'email' => \request()['email'],
             'user_type' => \request()['user_type'],
             'password' => Hash::make(\request('password')),
+            'name' => \request('cname')
         ]);
-        Company::create([
+         Company::create([
             'user_id' => $user->id,
             'cname' => \request('cname'),
             'slug' => \request('cname')
         ]);
+
         return redirect()->to('login')
             ->withSuccess('Email Must be Verified to Continue');
     }

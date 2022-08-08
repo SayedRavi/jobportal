@@ -12,7 +12,7 @@
             </div>
 
         @endif
-            <table class="table table-striped">
+            <table class="table table-sm table-striped">
                 <thead>
                 <th>#</th>
                 <th>Company Name</th>
@@ -29,7 +29,7 @@
                 @foreach($companies as $company)
                 <tbody>
                 <td>{{$i++}}</td>
-                <td>{{$company->name}}</td>
+                <td><b>{{$company->name}} </b></td>
                 <td>{{$company->email}}</td>
                 <td>{{$company->user_type}}</td>
                 <td>{{$company->created_at->diffForHumans()}}</td>
