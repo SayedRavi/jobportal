@@ -112,7 +112,7 @@ class adminController extends Controller
     public function save_category(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'name' => 'required | alpha ',
         ]);
         Category::create($data);
         return back()->withSuccess('Category Added Successfully');
@@ -128,7 +128,7 @@ class adminController extends Controller
     public function update_category($id, Request $request, Category $category)
     {
         $data = $request->validate([
-            'name' => 'required'
+            'name' => 'required | alpha'
         ]);
         $category->where('id',$id)->update($data);
         return back()->withSuccess('Category Updated Successfully');
@@ -151,7 +151,7 @@ class adminController extends Controller
         $id = Auth::user()->id;
          $request->validate([
             'password' => 'required | min:8',
-            'c_password' => 'required | same:password'
+            'confirm_password' => 'required | same:password'
         ]);
         $user->where('id',$id)->update([
             'password' => Hash::make($request->password)

@@ -29,9 +29,9 @@
                         <blockquote class="text-danger">{{$message}}</blockquote>
                         @enderror
                         <div class="input-group mb-3">
-                            <input type="password" required name="c_password" class="form-control" placeholder="Confirm Password">
+                            <input type="password" required name="confirm_password" class="form-control" placeholder="Confirm Password">
                         </div>
-                        @error('c_password')
+                        @error('confirm_password')
                         <blockquote class="text-danger">{{$message}}</blockquote>
                         @enderror
                         <button class="btn btn-primary" type="submit">Change Password</button>

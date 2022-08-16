@@ -109,8 +109,8 @@ class userProfileController extends Controller
     {
         $id = Auth::user()->id;
         $request->validate([
-            'password' => 'required | min:8',
-            'c_password' => 'required | same:password'
+            'password' => 'required | min:8 ',
+            'confirm_password' => 'required | same:password'
         ]);
         $user->where('id',$id)->update([
             'password' => Hash::make($request->password)

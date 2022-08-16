@@ -30,7 +30,7 @@
                     {{ \Illuminate\Support\Facades\Session::get( 'warning' ) }} <!-- here to 'withWarning()' -->
                     </div>
                 @endif
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-8">
                     <div class="d-flex align-items-center mb-5">
                         @if(empty(auth()->user()->company->logo))
                             <img  src="{{asset('avatar/th.jpg')}}" alt="" width="100px" height="100px" class="center">
@@ -52,13 +52,13 @@
 {{--                                <i class="fa fa-envelope-square" style="font-size: 40px; color: greenyellow; float: right;" ></i>--}}
                             </a>
                         </h4>
-                        <p>{{$job->description}}</p>
+                        <p class="mb-3">{{$job->description}}</p>
 
                         <h4 class="mb-3">Responsibility</h4>
-                        <p>{{$job->responsibility}}</p>
+                        <p class="mb-3">{{$job->responsibility}}</p>
 
                         <h4 class="mb-3">Qualifications</h4>
-                        <p>{{$job->qualification}}</p>
+                        <p class="mb-3">{{$job->qualification}}</p>
                     </div>
                 @if(\Illuminate\Support\Facades\Auth::user())
                      @if(\Illuminate\Support\Facades\Auth::user()->user_type=='seeker')

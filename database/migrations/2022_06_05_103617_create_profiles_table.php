@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->integer('user_id');
             $table->text('address');
             $table->string('phone_number')->nullable();
-            $table->string('gender');
+            $table->string('gender')->default('male')->nullable();
             $table->date('dob');
             $table->text('experience');
             $table->text('bio');
@@ -28,7 +28,6 @@ class CreateProfilesTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -16,9 +16,10 @@ class CompanyController extends Controller
     {
         $this->middleware(['employer','verified']);
     }
-    public function index($id, Company $company)
+    public function index($id)
     {
         $active = 'company';
+        $company = Company::where($id,'id');
         return view('company.index2', compact('company','active'));
     }
 
@@ -111,7 +112,7 @@ class CompanyController extends Controller
         $id = Auth::user()->id;
         $request->validate([
             'password' => 'required | min:8',
-            'c_password' => 'required | same:password'
+            'confirm_password' => 'required | same:password'
         ]);
         $user->where('id',$id)->update([
             'password' => Hash::make($request->password)

@@ -25,13 +25,13 @@ class JobPostRequest extends FormRequest
     {
         return [
 
-            'title' => 'required | min:3 | max:40 | string',
-            'roles' => 'required | min:3 | max:40 | string ',
+            'title' => 'required | min:3 | max:40 | alpha',
+            'roles' => 'required | min:3 | max:40 | alpha ',
             'description' => 'required | min:3 | max:1000 | string',
-            'position' => 'required | min:3 | max:40 | string',
+            'position' => 'required | min:3 | max:40 | alpha',
             'last_date' => 'required | date ',
             'address' => 'required | min:3 | max:40 | string',
-            'vacancy' => 'required | integer | max:5',
+            'vacancy' => 'required | integer | max:1000',
             'salary' => 'required | string | max:10',
             'responsibility' => 'required | min:3 | max:1000 | string',
             'qualification' => 'required | min:3 | max:1000 | string',
