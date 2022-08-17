@@ -32,10 +32,10 @@
                 @endif
                 <div class="col-lg-8 col-md-8">
                     <div class="d-flex align-items-center mb-5">
-                        @if(empty(auth()->user()->company->logo))
+                        @if(empty($job->company->logo))
                             <img  src="{{asset('avatar/th.jpg')}}" alt="" width="100px" height="100px" class="center">
                         @else
-                            <img  src="{{asset('uploads/logo')}}/{{auth()->user()->company->logo}}" alt="" width="200px" class="center @error('logo') valid @enderror">
+                            <img  src="{{asset('uploads/logo')}}/{{$job->company->logo}}" alt="" width="200px" class="center @error('logo') valid @enderror">
                         @endif
                             <div class="text-start ps-4">
                                 <h3 class="mb-3">{{$job->title}}</h3>
@@ -108,7 +108,7 @@
                         <p style="color: black">{{$job->company->description}}</p>
 
                         <div class="col-12">
-                            <a href="{{route('company.index',[$job->company->id, $job->company->slug])}}" class="btn btn-warning w-100" type="button">Visit Company</a>
+                            <a href="{{route('job.company.show',[$job->company->id, $job->company->slug])}}" class="btn btn-warning w-100" type="button">Visit Company</a>
                         </div>
                     </div>
                 </div>

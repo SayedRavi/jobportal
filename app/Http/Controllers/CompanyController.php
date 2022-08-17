@@ -16,12 +16,16 @@ class CompanyController extends Controller
     {
         $this->middleware(['employer','verified']);
     }
-    public function index($id)
+    public function index($id, $slug)
     {
+//        dd($id);
+
         $active = 'company';
-        $company = Company::where($id,'id');
-        return view('company.index2', compact('company','active'));
+        $company = Company::where('id',$id)->get();
+        $companyy = Company::where('id',$slug)->get();
+        return view('company.index2', compact('active','company', 'companyy'));
     }
+
 
     public function create()
     {

@@ -179,5 +179,11 @@ class JobController extends Controller
         Contact::create($data);
         return back()->withSuccess('Message Sent Successfully');
     }
-
+    public function company_show($id, $slug)
+    {
+//        dd($id);
+        $company = Company::where('id',$id)->get();
+//        dd($company);
+        return view('jobs.company_details', compact( 'company'));
+    }
 }

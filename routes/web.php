@@ -49,6 +49,7 @@ Route::patch('/jobs/myjobs/update/{id}',[\App\Http\Controllers\JobController::cl
 Route::post('/jobs/apply/{id}',[\App\Http\Controllers\JobController::class,'apply'])->name('jobs.apply');
 Route::get('/jobs/applicants',[\App\Http\Controllers\JobController::class,'applicants'])->name('jobs.applicants');
 Route::get('/jobs/alljobs',[\App\Http\Controllers\JobController::class, 'alljobs'])->name('alljobs');
+Route::get('/company/{id}/{company}/show',[\App\Http\Controllers\JobController::class,'company_show'])->name('job.company.show');
 Route::get('/about',[\App\Http\Controllers\JobController::class ,'about'])->name('about');
 Route::get('/contact',[\App\Http\Controllers\JobController::class ,'contact'])->name('contact');
 Route::post('/contact/save',[\App\Http\Controllers\JobController::class ,'save_contact'])->name('contact.save');

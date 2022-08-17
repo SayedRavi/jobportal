@@ -11,10 +11,10 @@
                     <div class="row g-4">
                         <div class="col-sm-12 col-md-8 d-flex align-items-center" >
 
-                            @if(empty(auth()->user()->company->logo))
+                            @if(empty($job->company->logo))
                                 <img  src="{{asset('avatar/th.jpg')}}" alt="" style="width: 100px; height: 100px;" class="center">
                             @else
-                                <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('uploads/logo')}}/{{auth()->user()->company->logo}}" alt="" style="width: 80px; height: 80px;">
+                                <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('uploads/logo')}}/{{$job->company->logo}}" alt="" style="width: 80px; height: 80px;">
 
                             @endif
                             <a href="{{route('jobs.show',[$job->id, $job->slug])}}">

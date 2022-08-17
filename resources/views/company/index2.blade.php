@@ -5,30 +5,34 @@
         <br>
         <div class="row">
             <br>
-            <div class="company-profile">
-                @if(empty($company->cover_photo))
-                    <div class="cover-container">
-                        <img  src="{{asset('avatar/apple.png')}}" alt="" height="50%" class="cover-img">
-                    </div>
-                @elseif(\Illuminate\Support\Facades\Auth::user()->company->cover_photo)
-                    <div class="cover-container">
-                        <img  src="{{asset('uploads/cover_photo')}}/{{$company->cover_photo}}" alt="" width="100%" height="50%" class="img-fluid center">
-                    </div>
-                @endif
-            </div>
-            <div class="company-desc">
-                <br>
-                @if(empty(auth()->user()->company->logo))
-                    <img  src="{{asset('avatar/apple.jpg')}}" alt="" width="10%" class="img-fluid center">
-                @else
-                    <img  src="{{asset('uploads/logo')}}/{{$company->logo}}" alt="" width="200px" class="img-fluid center @error('logo') valid @enderror">
-                @endif
-                <h1>{{$company->cname}}</h1>
-                <p>{{$company->description}} </p>
-                <p><b>Slogan: </b>&nbsp;{{$company->slogan}}</p>
-                <p><b>Address: </b>&nbsp;{{$company->address}}</p>
-                <p><b>Phone: </b>&nbsp;{{$company->phone}}</p>
-                <p><b>Website: </b>&nbsp;{{$company->website}}</p>
+                @foreach($company as $com)
+
+                <div class="company-profile">
+                    @if(empty($com->cover_photo))
+                        <div class="cover-container">
+                            <img  src="{{asset('cover/banner4.png')}}" alt="" height="50%" width="100%" class="cover-img">
+                        </div>
+                    @elseif(\Illuminate\Support\Facades\Auth::user()->company->cover_photo)
+                        <div class="cover-container">
+                            <img  src="{{asset('uploads/cover_photo')}}/{{$com->cover_photo}}" alt="" width="100%" height="50%" class="img-fluid center">
+                        </div>
+                    @endif
+                </div>
+                <div class="company-desc">
+                    <br>
+                    @if(empty($com->logo))
+                        <img  src="{{asset('avatar/apple.jpg')}}" alt="" width="10%" class="img-fluid center">
+                    @else
+                        <img  src="{{asset('uploads/logo')}}/{{$com->logo}}" alt="" width="200px" class="img-fluid center @error('logo') valid @enderror">
+                    @endif
+                    <h1>{{$com->cname}}</h1>
+                    <p>{{$com->description}} </p>
+                    <p><b>Slogan: </b>&nbsp;{{$com->slogan}}</p>
+                    <p><b>Address: </b>&nbsp;{{$com->address}}</p>
+                    <p><b>Phone: </b>&nbsp;{{$com->phone}}</p>
+                    <p><b>Website: </b>&nbsp;{{$com->website}}</p>
+
+                @endforeach
 
             </div>
             {{--            <table class="table">--}}

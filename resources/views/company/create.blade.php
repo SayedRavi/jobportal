@@ -125,7 +125,7 @@
                      <p><b>Company Name: </b>{{\Illuminate\Support\Facades\Auth::user()->company->cname}}</p>
                      <p><b>Company Email: </b>{{\Illuminate\Support\Facades\Auth::user()->email}}</p>
                      <p><b>Company Website: </b>{{\Illuminate\Support\Facades\Auth::user()->company->website}}</p>
-                     <p><b>Company: </b><a href="company/{{\Illuminate\Support\Facades\Auth::user()->company->slug}}">View</a></p>
+                     <p><b>Company: </b><a href="{{route('company.index',[\Illuminate\Support\Facades\Auth::user()->company->id,\Illuminate\Support\Facades\Auth::user()->company->slug])}}">View</a></p>
                      <p><b>Website: </b>{{\Illuminate\Support\Facades\Auth::user()->company->website}}</p>
                      <p><b>Phone: </b>{{\Illuminate\Support\Facades\Auth::user()->company->phone}}</p>
                      <p><b>Slogan: </b>{{\Illuminate\Support\Facades\Auth::user()->company->slogan}}</p>
