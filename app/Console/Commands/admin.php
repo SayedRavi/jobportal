@@ -40,12 +40,12 @@ class admin extends Command
      */
     public function handle()
     {
-        if (!User::where('email','=','ravihashimi@gmail.com')->first()){
+        if (!User::where('email','=','admin@jobportal.com')->first()){
         User::create([
-            'name' => 'Ravi',
-            'email' => 'ravihashimi@gmail.com',
+            'name' => 'Super Admin',
+            'email' => 'admin@jobportal.com',
             'user_type' => 'admin',
-            'password' => Hash::make('php@1234'),
+            'password' => Hash::make('Job@12345'),
             'email_verified_at' => '2022-07-10 18:19:10'
         ]);
         $this->info('created successfully');
