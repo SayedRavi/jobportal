@@ -16,7 +16,7 @@
 <!-- Spinner start -->
 @include('partial.spinner')
 <!-- Spinner End -->
-
+ 
 <!-- Navbar start -->
 @include('partial.Nav')
 <!-- Navbar End -->
